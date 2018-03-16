@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Take the Test_ver2</title>
+</head>
+<body>
+    <script>
+        let questionList = [
+            '오늘의 요일은?', '수요일', 10,
+            '미국의 수도는 어디입니까?', '워싱턴', 20,
+            '물에 가라앉고 있는 나라는?', '몰디브', 40
+        ];
+
+        const SEPERATOR = 3;
+        const SCORE = 2;
+        const ANSWER = 1;
+
+
+        let step;
+        let score = 0;
+        
+        /*
+        의미를 부여할 수 없는 숫자 값을 의미를 부여할 수 있는 식별자로 변경함으로서
+        코드의 의미를 좀 더 명확하게 할 수 있다
+        */
+
+        for(step=0; step<questionList.length; step=step+SEPERATOR){
+            let answer = prompt(questionList[step]);
+
+            if(answer == questionList[step+ANSWER]){
+                score = score + questionList[step+SCORE];
+            }
+        }
+
+        alert('당신의 점수는 ' + score + '점 입니다.');
+
+    </script>
+</body>
+</html>

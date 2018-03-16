@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Take the Test_ver2</title>
+</head>
+<body>
+    <script>
+        let questionList = [
+            {
+                question: '오늘의 요일은?',
+                answer: '수요일',
+                score: 10
+            },
+            {
+                question: '미국의 수도는 어디입니까?',
+                answer: '워싱턴',
+                score: 40
+            },
+            {
+                question: '물에 가라앉고 있는 나라는?',
+                answer: '몰디브',
+                score: 50
+            }
+        ];
+
+        let step;
+        let score = 0;
+
+        for(step=0; step<questionList.length; step=step+1){
+            let answer = prompt(questionList[step].question);
+
+            if(answer == questionList[step].answer){
+                score = score + questionList[step].score;
+            }
+        }
+
+        alert('당신의 점수는 ' + score + '점 입니다.');
+
+    </script>
+</body>
+</html>
