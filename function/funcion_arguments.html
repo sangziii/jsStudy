@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>함수</title>
+</head>
+<body>
+    <script>
+        /*
+            ES6에는 arguments 보다 편리한 가변 인수 처리 문법을 제공한다.
+            값 확산 문법을 이용하여 arguments보다 명시적이며 유연하게 가변인수를 다룰 수 있다.
+        */
+
+        //ES6 가변 인수 처리
+        function sum(...args){
+            let sum = 0;
+
+            for(let i=0; i<args.length; i++){
+                sum += (typeof args[i] === 'number')? args[i] : 0;
+            }
+        }
+
+
+        //필수 인수와 선택 인수 표현하기
+        function sum2(a,b, ...args){
+            let sum = 0;
+
+            //최소 두 개의 수는 있어야 처리
+            if(a === undefined || b === undefined){
+                return false;
+            }
+
+            sum = a + b;
+
+            for(let i=0; i<args.length; i++){
+                sum += (typeof args[i] === 'number')? args[i] : 0
+            }
+
+            return sum;
+        }
+
+        //인수의 기본값 설정
+        function sum3(a=0,b=0, ...args){
+            let sum = 0;
+
+            for(let i=0; i<args.length; i++){
+                sum += (typeof args[i] === 'number')? args[i] : 0;
+            }
+        }
+
+        /*
+            객체로서의 함수
+            JavaScript에서 원시 데이터 타입(기본형)을 제외한 거의 모든 것은 객체이다.
+            함수 또한 객체이며, 객체와 같이 속성과 메소드(속성 값이 함수)를 가질 수 있다.
+        */
+
+        //아무것도 하지 않는 함수
+        /*
+            아무것도 하지 않는 함수 empty는 인수 x,y를 가지며 아무 일도 하지 않는다. 호출되면 undefined를 반환하는 쓸모없는 함수인 것이다.
+            그렇다면 함수 호출이 아닌 empty.length는 무엇인가? empty 함수의 속성 length에 접근한다. 함수의 length 속성은 함수 인수 사양의 인수 개수를 가진다.
+            함수는 length 속성 외에도 apply, call, bind, name, prototype, toString 등 다양한 속성과 메소드를 가지고 있는 완벽한 객체이다.
+            JavaScript의 함수는 호출되거나 인스턴스를 만들거나 하는 특별한 기능을 가진 객체 임을 알 수 있다.
+        */
+        function empty(x, y){ }
+
+        console.log(empty.length);
+
+        //함수에 포함된 함수
+        /*
+            함수는 함수 또한 포함 할 수 있습니다. 다음 코드와 같이 foo함수 안쪽의 get함수는 foo함수 내에서 사용될 수 있다.
+            함수 안에 정의된 함수는 포함한 함수 범위 내에만 알려지며 호출될 수 있다. 위치한 함수 바깥쪽에서 안쪽 함수의 존재는 아려지지 않으며, 따라서 호출 할 수 없다.
+        */
+        function foo(){
+            function get(){
+                return 100;
+            }
+            return get();
+        }
+
+        let result = foo();
+        
+        console.log(result);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>함수</title>
+</head>
+<body>
+    <script>
+        /*  
+            함수의 정의
+            보통의 프로그래밍 언어와 마찬가지로 함수명과 인수 그리고 함수가 실행할 코드 블럭으로 구성된다. 
+            return문으로 값을 반환 할 수 있다. 명시적 return 문이 없을 경우 undefined를 반환한다. 
+            [따라서 모든 함수는 값을 반환한다]
+
+            함수 호출시 JavaScript는 함수의 인수 전달을 느슨하게 처리하며 호출 자체는 언제나 성공한다. 이는 함수 호출 순강 어떤 오류도 발생하지 않음을 의미한다.
+        */
+
+        //함수 정의와 함수 호출
+        function sum(x, y){
+            return x+y;
+        }
+
+        let r1 = sum(10,20); // 10 + 20 = 30
+        let r2 = sum(10); // 10 + undefined => NaN
+        let r3 = sum(); // undefined + undefined => NaN
+        let r4 = sum(10,20,30,40); // 10 + 20 = 30
+
+        console.log(r1, r2, r3, r4);
+
+        //개선 -> 인수 값 검증
+        function sum2(x, y){
+            if(x === undefined || y === undefined){
+                return false;
+            }
+
+            if(typeof x !== 'number' || typeof y !== 'number'){
+                return false;
+            }
+
+            return x + y;
+        }
+
+        let r1 = sum(10,20); 
+        let r2 = sum(10);
+        let r3 = sum();
+        let r4 = sum(10,20,30,40);
+
+        //사양에 명시된 인수가 호출시 전달되지 않을 경우, undefined 값이 할당된다. 
+        //이런 느슨한 인수 전달 메커니즘을 이해하고 함수가 작성자의 의도대로 작성될 수 있도록 만들어야 한다.
+
+        //가변인수
+        /*
+            함수의 사양보다 많이 전달된 인수는 함수 호출과 함께 [유사 배열] arguments에 담겨 전달된다. 
+            arguments에는 언제나 전달된 모든 인수가 왼쪽부터 오른쪽으로 순서대로 담겨진다.
+            함수 호출시 언제나 제공되는 arguments로 매우 유연하게 가변 인수를 처리 할 수 있다.
+        */
+
+        //가변 인수 체크
+        function sum(x, y) { 
+            if (arguments.length !== 2) {
+                return 0
+            }
+
+            console.log(arguments);
+
+            return x + y;  
+        }
+
+        let r1 = sum(10, 20);
+        let r2 = sum(10);
+        let r3 = sum();
+        let r4 = sum(10, 20, 30, 40);
+
+        console.log(r1, r2, r3, r4);
+
+        //인수 값 검증
+        function sum(x, y){
+            if(x === undefined || y === undefined){
+                return false;
+            }
+
+            if(typeof x !== 'number' || typeof y !== 'number'){
+                return false;
+            }
+
+            return x+y;
+        }
+
+        //전달된 인수의 합 반환하기
+        function sum(){
+            let sum = 0;
+
+            for(let i=0; i<arguments.length; i++){
+                if(typeof arguments[i] === 'number'){
+                    sum = sum + arguments[i];
+                } else {
+                    sum = sum + 0;
+                }
+            }
+        }
+
+        let r1 = sum();
+        let r2 = sum(10, 20, 30); 
+        let r3 = sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        let r4 = sum(1, 2, '3');
+
+
+    </script>
+</body>
+</html>
