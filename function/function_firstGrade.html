@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>1급 함수</title>
+</head>
+<body>
+    <script>
+        /*
+            1급 함수
+            함수도 변수에 할당할 수 있다. 함수 자체는 조금 다른 종류의 객체이고, 객체는 값으로 평가되기 때문에 함수를 변수에 넣을 수 있는 것은 당연할 수 있다.
+            변수에 담긴 함수는 함수의 인수로 전달될 수 있으며, 함수의 반환값이 될 수도 있다.
+            변수에 할당된 함수의 호출은 일반적인 함수의 호출과 같은 방식으로 작동한다.
+
+            [함수식]으로 생성된 함수는 대입문의 오른쪽에 위치하며 이는 곧 수식으로 평가됨을 의미한다.
+            따라서 함수의 마지막은 구문 종료 문자 세미콜론이 되어야 한다.
+            객체 속성으로 존재하는 함수를 객체의 "메소드"라고 한다
+        */
+
+        //함수식 
+        let double = function double(x){
+            return x * 2;
+        };
+
+        let result = double(100);
+
+        console.log(100);
+
+        //익명 함수
+        let double2 = function (x){
+            return x * 2;
+        }
+
+        let reuslt2 = dobule2(10);
+
+        //객체 속성으로의 함수
+        let utils = {
+            double: function(x){
+                return x * 2;
+            }
+        };
+
+        let reuslt3 = utils.double(30);
+
+    </script>
+</body>
+</html>
