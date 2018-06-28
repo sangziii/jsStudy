@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>자바스크립트 기본 타입 - null & undefined</title>
+</head>
+<body>
+</body>
+<script>
+	/*
+		두 타입 모두 '값이 비어있음' 을 나타낸다.
+		자바스크립트 환경 내에서 기본적으로 값이 할당되지 않은 변수는 undefined 타입이며
+		undefined 타입의 변수의 값 또한 undefined 이다 => undefined는 타입 이자 값을 나타낸다.
+
+		null 타입 변수인 nullVar의 typeof 결과가 null이 아니라 object라는 것이다.
+
+		따라서 null타입 변수인지를 확인할 때는 typeof 연산자를 사용하면 안되고, 일치 연산자(===)를 사용해서 변수의 값을 직접 확인해야 한다.
+	*/
+
+	var nullVar = null;
+
+	console.log( typeof nullVar === null ); // false
+	console.log( nullVar === null ); // true
+
+</script>
+</html>

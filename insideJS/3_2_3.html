@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>자바스크립트 참조 타입(객체 타입) - for in 문과 객체 프로퍼티 출력</title>
+</head>
+<body>
+<script>
+	/*
+		객체에 포함된 프로퍼티에 접근하고 싶을때는 for in 문을 사용하면 된다.
+
+		객체의 프로퍼티를 delete 연산자를 이용해 즉시 삭제할 수 있다.
+		주의해야될 점은 delete 연산자는 객체의 프로퍼티를 삭제할 뿐 객체 자체를 삭제하지는 못한다는 것이다.
+	*/
+
+	// Object 함수를 통한 obj 객체 생성
+	var obj = new Object();
+
+	obj= {
+		name: 'foo',
+		age: 30,
+		major: 'design'
+	}
+
+	// for in 문을 이용한 객체 출력
+	var prop;
+
+	for (prop in obj){
+		console.log(prop);
+	}
+
+	var foo = {
+		name: 'foo',
+		nickname: 'babo'
+	};
+
+	console.log(foo['nickname']);       // babo
+	delete foo['nickname'];
+	console.log(foo['nickname']);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>자바스크립트 배열</title>
+</head>
+<body>
+<script>
+	/*
+
+	*/
+
+	// 빈 배열
+	var emptyArr = [];
+	console.log(emptyArr[0]);      // undefined
+
+	// 배열 요소 동적 생성
+	emptyArr[0] = 100;
+	emptyArr[3] = 'eight';
+	emptyArr[7] = true;
+	console.log(emptyArr);          // 100, undefined, undefined, 'eight', undefined, undefined, undefined, true
+	console.log(emptyArr.length);   // 8
+
+
+	// 배열 length 프로퍼티의 명시적 변경
+	var arr = [0, 1, 2];
+	console.log(arr.length);
+
+	arr.length = 5;
+	console.log(arr);   // [0, 1, 2, undefined, undefined]
+
+	arr.length = 2;
+	console.log(arr);   // [0, 1]
+	console.log(arr[2]); // undefined
+
+
+
+</script>
+</body>
+</html>

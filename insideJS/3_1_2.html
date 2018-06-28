@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>자바스크립트 기본 타입 - String</title>
+</head>
+<body>
+</body>
+<script>
+	/*
+		문자열은 문자 배열처럼 index를 이용해서 접근할 수 있다.
+		자바스크립트에서는 한 번 생성된 문자열은 '읽기'만 가능하지 수정은 불가능하다!!
+	*/
+
+	var str = 'test';
+
+	console.log(
+		str[0], str[1], str[2], str[3]
+	);
+
+	str[0] = 'X';
+
+	console.log(str); // Xest (x) / test (o)
+
+</script>
+</html>

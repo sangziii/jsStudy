@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>자바스크립트 참조 타입(객체 타입) - 프로토타입</title>
+</head>
+<body>
+<script>
+	/*
+		자바스크립트의 [ 모든 객체는 자신의 부모 역활을 하는 객체와 연결되어 있다. ]
+		  -> 부모 객체의 프로퍼티를 마치 자신의 것처럼 쓸 수 있는 것 같은 특징이 있다. 이러한 부모 객체를 프로토타입 객체(짧게는 프로토타입)라고 부른다.
+
+		아래 예제에서 obj객체는 toString() 메서드가 없으므로 에러가 발생해야 하지만 정상적으로 출력된 것을 확인할 수 있다.
+		이유는 바로 obj객체의 프로토타입에 toString() 메서드가 이미 정의되어 있고 obj객체가 상속처럼 toString() 메서드를 호출했기 때문이다.
+	*/
+
+	var obj = {
+		name: 'foo',
+		age: 30
+	};
+
+	console.log(obj.toString());
+	console.dir(obj);
+</script>
+</body>
+</html>
